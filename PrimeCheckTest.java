@@ -23,13 +23,29 @@ public class PrimeCheckTest {
   @Test
   public void testPrimes() {
     /* ToDo: insert a test here */
-    assertEquals("this will fail", true, false);
+    for (int i = 2; i <= 1000; i++) {
+      for (int j = 2; j <= i/2; j++) {
+        if(i==j) {
+          assertEquals("Number is prime", true, PrimeCheck.isPrime(i))
+        }
+        if(i%j==0) {
+          break;
+        }
+      }
+    }
   }
 
   // --------------------------------------------------------------- //
   @Test
   public void testNonPrimes() {
     /* ToDo: insert a test here */
-    assertEquals("this will fail", true, false);
+    for (int i = 2; i <= 1000; i++) {
+      for (int j = 2; j <= i/2; j++) {
+        if(i%j==0) {
+          assertEquals("Number is not prime", false, PrimeCheck.isPrime(i));
+          break;
+        }
+      }
+    }
   }
 }
