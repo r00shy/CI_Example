@@ -23,15 +23,18 @@ public class PrimeCheckTest {
   @Test
   public void testPrimes() {
     /* ToDo: insert a test here */
+    boolean isPrime = true;
     for (int i = 2; i <= 1000; i++) {
-      for (int j = 2; j <= i/2; j++) {
-        if(i==j) {
-          assertEquals("Number is prime", true, PrimeCheck.isPrime(i));
-        }
+      for (int j = 2; j*j <= i; j++) {
         if(i%j==0) {
+          isPrime = false;
           break;
         }
       }
+      if (isPrime) {
+        assertEquals("Number is prime", true, PrimeCheck.isPrime(i));
+      }
+      isPrime = true;
     }
   }
 
@@ -40,7 +43,7 @@ public class PrimeCheckTest {
   public void testNonPrimes() {
     /* ToDo: insert a test here */
     for (int i = 2; i <= 1000; i++) {
-      for (int j = 2; j <= i/2; j++) {
+      for (int j = 2; j*j <= i; j++) {
         if(i%j==0) {
           assertEquals("Number is not prime", false, PrimeCheck.isPrime(i));
           break;
