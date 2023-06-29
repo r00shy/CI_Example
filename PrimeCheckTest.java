@@ -26,7 +26,7 @@ public class PrimeCheckTest {
     for (int i = 2; i <= 1000; i++) {
       for (int j = 2; j <= i/2; j++) {
         if(i==j) {
-          assertEquals("Number is prime", true, PrimeCheck.isPrime(i))
+          assertEquals("Number is prime", true, PrimeCheck.isPrime(i));
         }
         if(i%j==0) {
           break;
